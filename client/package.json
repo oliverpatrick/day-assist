@@ -11,7 +11,12 @@
     "react-dom": "^16.8.6",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^3.4.3",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
