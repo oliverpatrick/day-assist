@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Context from '../../utils/context';
-import './Header.scss';
+import './Navigation.scss';
 
-const Header = () => {
+const Navigation = () => {
   const context = useContext(Context)
     return(
-      <div className="header">
+      <div className="Navigation">
         <Link to='/' style={{padding: '5px'}}>
           Home
         </Link>
@@ -33,4 +33,4 @@ const Header = () => {
     )
   };
 
-export default Header;
+export default Navigation;

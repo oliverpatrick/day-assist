@@ -5,7 +5,7 @@ import Context from './utils/context';
 import AuthCheck from './utils/authcheck';
 
 import Home from './hooks/home';
-import Header from './components/Header/Header';
+import Navigation from './components/Navigation/Navigation';
 import HooksContainer1 from './hooks/hook1';
 import Callback from './hooks/callback';
 import HooksForm from './hooks/hooks_form1';
@@ -27,7 +27,7 @@ const Routes = () => {
       return (
         <div>
           <Router history={history} >
-          <Header />
+          <Navigation />
           <div>
             <Switch>
               <Route exact path='/' component={Home} />

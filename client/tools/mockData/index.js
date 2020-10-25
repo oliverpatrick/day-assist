@@ -3,12 +3,12 @@ const path = require("path");
 const mockDataView = require("./user-api/mockData");
 
 const {
-  dummyData
+  mockUser
 } = mockDataView;
 
 
 const data = JSON.stringify({
-  dummyData
+  mockUser
 });
 
 const filepath = path.join(__dirname, "../mockAPI/db.json");
