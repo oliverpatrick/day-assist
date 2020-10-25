@@ -6,7 +6,7 @@ import './Navigation.scss';
 const Navigation = () => {
   const context = useContext(Context)
     return(
-      <div className="Navigation">
+      <div className="navigation">
         <Link to='/' style={{padding: '5px'}}>
           Home
         </Link>

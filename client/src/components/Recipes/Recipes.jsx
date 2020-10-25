@@ -1,24 +1,57 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import axios from '../../utils/axios';
 
-const Recipes = () => {
+
+export default function Recipes() {
     const [recipe, setRecipe] = useState([])
+    const [weight, setWeight] = useState(0)
+    const [showRecommendedProtein, setRecommendedProtein] = useState(false);
+    
 
     async function fetchRecipes() {
         const request = await axios.get("/api/recipes")
         setRecipe(request.data)
         console.log(request.data)
-        console.log(request.data.recipes)
-        console.log(request.data.recipes[0])
-    }
+    };
+
+    function handleChangeBodyweight(event) {
+        let bodyWeight = event.target.value;
+        return setWeight(event.target.value)
+    };
+
+    
+    function handleSubmitBodyweight(event) {
+        event.preventDefault();
+
+        setRecommendedProtein(true);
+        let recommendedProteinIntake = weight * 1.6;
+        setWeight(recommendedProteinIntake)
+    };
 
     return (
         <div>
             <h1>Recipes</h1>
             <br></br>
-            <button onClick={fetchRecipes}>Get Tea Recipes</button>
+            <form autoComplete="off" onSubmit={handleSubmitBodyweight}>
+                <TextField
+                    id="standard-number"
+                    label="Bodyweight(kg)"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    onChange={handleChangeBodyweight}
+                />
+                <Button onClick={handleSubmitBodyweight}>Confirm</Button>
+                {showRecommendedProtein ? <h3>{weight}</h3> : null }
+            </form>
+            <br></br>
+            <Button onClick={fetchRecipes}>Get Tea Recipes</Button>
         </div>
     )
-}
+};
 
-export default Recipes
+//https://www.theproteinworks.com/thelockerroom/calorie-calculator/
+
